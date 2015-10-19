@@ -40,27 +40,6 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     }
 
 
-    public function search($params) {
-        $query = self::find();
-
-        $dataProvider = new ActiveDataProvider([
-            'query' => $query,
-        ]);
-
-        if (!($this->load($params) && $this->validate())) {
-            return $dataProvider;
-        }
-
-        $query->andFilterWhere([
-            'user_id' => $this->user_id,
-        ]);
-
-        $query->andFilterWhere(['like', 'username', $this->username]);
-
-
-        return $dataProvider;
-    }
-
     public function beforeValidate()
     {
         if ($this->isNewRecord) {

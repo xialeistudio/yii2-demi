@@ -19,11 +19,7 @@ AppAsset::register($this);
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
-    <style>
-        body {
-            padding-top: 50px;
-        }
-    </style>
+
     <?php $this->head() ?>
 </head>
 <body>
@@ -42,7 +38,8 @@ AppAsset::register($this);
             'class' => 'navbar-nav navbar-right'
         ],
         'items' => [
-            ['label' => '用户管理', 'url' => ['/admin']]
+            ['label' => '用户管理', 'url' => ['/admin/user/index']],
+            ['label' => '退出登录', 'url' => ['/admin/default/logout']]
         ]
     ]);
     NavBar::end();
